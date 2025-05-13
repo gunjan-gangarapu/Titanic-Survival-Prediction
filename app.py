@@ -4,11 +4,12 @@ import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
-# Function to load model (use the trained model_rf)
-def load_model():
-    return model_rf  # Return the pre-trained model
+import joblib
 
-model = load_model()
+def load_model():
+    model = joblib.load('model.pkl')  # Make sure the path is correct
+    return model
+
 
 # Streamlit app for prediction
 st.title("Titanic Survival Prediction")
